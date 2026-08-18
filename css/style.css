@@ -1,0 +1,130 @@
+@font-face {
+    font-family: "Glacial Indifference";
+    src: url("/fonts/GlacialIndifference-Regular.otf") format("opentype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Glacial Indifference bold";
+    src: url("/fonts/GlacialIndifference-Bold.otf") format("opentype");
+    font-weight: 700;
+    font-style: normal;
+}
+
+:root {
+    --fundo: #132442;
+    --primario: #88bbd8;
+    --secundario: #d7e366;
+    --base-font: 'Glacial Indifference', sans-serif;
+    --bold: 'Glacial Indifference bold', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    font-family: var(--base-font);
+    font-weight: normal;
+    font-style: normal; 
+}
+
+a{
+    color: inherit;
+}
+
+body{
+    background-color: var(--fundo);
+    width: 100dvw;
+}
+
+main{
+    width: 70%;
+    padding-left: 25rem;
+}
+
+#menu-lateral{
+    position: fixed;
+    left: 4rem;
+    height: 25vh;
+    top: 25vh;
+    width: 10rem;
+    padding: 3.5rem;
+    background-color: var(--primario);
+    border-radius: 10px;
+    opacity: 70%;
+}
+
+#navegacao{
+    height: 100%;
+}
+
+#lista-menu{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.titulo-principal{
+    color: var(--secundario);
+    font-size:70pt;
+    height: 4.5rem;
+}
+
+.titulo-principal-azul{
+    color: var(--primario);
+    font-size:70pt;
+    text-align: center;
+}
+
+.item-menu{
+    color: inherit;
+    font-size: 20pt;
+    font-family: var(--bold);
+}
+
+#foto-perfil{
+    border-radius: 100%;
+    width: 20rem;
+    height: 20rem;
+}
+
+#pagina-inicial{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 15rem;
+    padding-top: 10rem;
+    height: 100vh;
+    gap: 2rem;
+}
+
+#pagina-tecnologias{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    height: 100vh;
+}
+
+.sub-titulo{
+    font-size:25pt;
+    color: var(--primario);
+}
+
+#stacks{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    row-gap: 1.5rem;
+    width: 100%;
+}
+
+.stack{
+    background-color: var(--secundario);
+    width: 20rem;
+    height: 10rem;
+    border-radius: 10px;
+}
