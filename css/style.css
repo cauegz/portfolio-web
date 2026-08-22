@@ -14,7 +14,7 @@
 
 :root {
     --fundo: #080D1A;
-    --primario: #3B82F6;
+    --primario: #3c42a9;
     --secundario: #A78BFA;
     --terciario: #14B8A6;
     --hover: #1E293B;
@@ -38,18 +38,37 @@ html {
     font-style: normal; 
 }
 
-body {
-    background-color: var(--fundo);
+body{
     width: 100dvw;
     display: flex;
+    background-color: var(--fundo);
 }
 
 
+#pagina-inicial::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("../images/bg-1.jpg");
+    background-size: cover;
+    opacity: 0.4;
+    z-index: 0;
+}
+
+#pagina-inicial>* {
+    position: relative;
+    z-index: 1;
+}
+
 /* ==================== ASIDE / MENU ==================== */
+
+nav{
+    background-color: transparent;
+}
 
 #lista-menu {
     top: 32dvh;
-    left: 9rem;
+    left: 7rem;
     position: fixed;
     /* background-color: var(--primario); */
     transform: rotate(45deg);
@@ -60,7 +79,8 @@ body {
     grid-template-columns: 10rem 10rem;
     grid-template-rows: 10rem 10rem;
     border-radius: 10px;
-    opacity: 70%;
+    opacity: 0.7;
+    z-index: 200;
 }
 
 ul li a {
@@ -98,6 +118,12 @@ ul li a {
 }
 
 /* ==================== PROJETOS ==================== */
+
+#pagina-projetos{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
 
 #projects{
     display: flex;
@@ -189,9 +215,9 @@ ul li a {
 /* ==================== MAIN / SEÇÕES ==================== */
 
 main {
-    width: 75%;
-    position: absolute;
-    right: 0px;
+    width: 100%;
+    padding-left: 30%;
+    z-index: 100;
 }
 
 section {
@@ -211,22 +237,21 @@ section {
 .titulo-principal-2 {
     color: var(--primario);
     font-size: 70pt;
-    text-align: center;
 }
 
 .titulo-principal-3 {
     color: var(--secundario);
     font-size: 70pt;
-    text-align: center;
 }
 
 #projetos{
     margin-bottom: 1.5rem;
+    text-align: left;
 }
 
 .sub-titulo {
     font-size: 25pt;
-    color: var(--primario);
+    color: var(--terciario);
 }
 
 
@@ -255,6 +280,13 @@ section {
     gap: 2rem;
 }
 
+.stack-img{
+    display: block;
+    height: 60%;
+    width: 60%;
+    object-fit: contain;
+}
+
 #stacks {
     display: grid;
     grid-template-columns: 20rem 20rem 20rem;
@@ -263,9 +295,20 @@ section {
     row-gap: 1.5rem;
     column-gap: 1.5rem;
     width: 100%;
+    perspective: 800px;
 }
 
 .stack {
-    background-color: var(--secundario);
-    border-radius: 10px;
+
+    animation: flutuar 8s linear infinite;
+}
+
+@keyframes flutuar {
+    from {
+        transform: translateY(0deg) translateZ(150px);
+    }
+
+    to {
+        transform: translateY(360deg) translateZ(150px);
+    }
 }
