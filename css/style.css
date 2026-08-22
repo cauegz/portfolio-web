@@ -16,6 +16,7 @@
     --fundo: #080D1A;
     --primario: #3B82F6;
     --secundario: #A78BFA;
+    --terciario: #14B8A6;
     --hover: #1E293B;
     --base-font: 'Glacial Indifference', sans-serif;
     --bold: 'Glacial Indifference bold', sans-serif;
@@ -101,9 +102,10 @@ ul li a {
 #projects{
     display: flex;
     width: 100%;
-    align-items: center;
+    /* align-items: center; */
     justify-content: center;
     flex-direction: column;
+    gap: 2rem;
 }
 
 .project > *{
@@ -111,13 +113,73 @@ ul li a {
 }
 
 .project{
+    position: relative;
+    overflow: hidden;
+
     width: 50%;
-    border: 1px solid red;
+    height: 5rem;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    padding: .5rem;
+    background-color: var(--primario);
+    border-radius: 10px;
+    margin-left: 5rem;
 }
+
+.project::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-color: var(--hover);
+
+    transform: translateX(-100%);
+    transition: transform 1.4s ease;
+
+    z-index: 0;
+}
+
+.project:hover::before {
+    transform: translateX(0);
+}
+
+.project>* {
+    position: relative;
+    z-index: 1;
+}
+
+.titulo-projeto{
+    color: var(--hover);
+    font-size: 35pt;
+    text-align: left;
+    font-family: var(--menu-font);
+    font-weight: 500;
+    letter-spacing: 2px;
+    background: linear-gradient(to right,
+                var(--terciario) 50%,
+                var(--fundo) 50%);
+    
+    background-size: 200% 100%;
+    background-position: 100% 0%;
+
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    transition: background-position 1.4s ease;
+}
+
+.project:hover .titulo-projeto {
+    background-position: 0% 0%;
+}
+
+.descricao-projeto{
+    color: var(--primario);
+    display: none;
+}
+
 
 .project-header{
     text-align: center;
@@ -146,10 +208,20 @@ section {
     height: 4.5rem;
 }
 
-.titulo-principal-azul {
+.titulo-principal-2 {
     color: var(--primario);
     font-size: 70pt;
     text-align: center;
+}
+
+.titulo-principal-3 {
+    color: var(--secundario);
+    font-size: 70pt;
+    text-align: center;
+}
+
+#projetos{
+    margin-bottom: 1.5rem;
 }
 
 .sub-titulo {
