@@ -1,23 +1,30 @@
 @font-face {
     font-family: "Glacial Indifference";
-    src: url("/fonts/GlacialIndifference-Regular.otf") format("opentype");
+    src: url("../fonts/GlacialIndifference-Regular.otf") format("opentype");
     font-weight: 400;
     font-style: normal;
 }
 
 @font-face {
     font-family: "Glacial Indifference bold";
-    src: url("/fonts/GlacialIndifference-Bold.otf") format("opentype");
+    src: url("../fonts/GlacialIndifference-Bold.otf") format("opentype");
     font-weight: 700;
     font-style: normal;
 }
 
 :root {
-    --fundo: #132442;
-    --primario: #88bbd8;
-    --secundario: #d7e366;
+    --fundo: #080D1A;
+    --primario: #3B82F6;
+    --secundario: #A78BFA;
+    --hover: #1E293B;
     --base-font: 'Glacial Indifference', sans-serif;
     --bold: 'Glacial Indifference bold', sans-serif;
+    --menu-font: 'Barlow Condensed', sans-serif;
+}
+
+html {
+    overflow-y: scroll;
+    scroll-behavior: smooth;
 }
 
 * {
@@ -39,21 +46,18 @@ body {
 
 /* ==================== ASIDE / MENU ==================== */
 
-aside {
-    width: 30%;
-}
-
 #lista-menu {
-    top: 30dvh;
-    left: 6rem;
+    top: 32dvh;
+    left: 9rem;
     position: fixed;
-    background-color: var(--primario);
+    /* background-color: var(--primario); */
     transform: rotate(45deg);
-    height: 25rem;
-    width: 25rem;
+    height: 20rem;
+    width: 20rem;
     display: grid;
-    grid-template-columns: 12.5rem 12.5rem;
-    grid-template-rows: 12.5rem 12.5rem;
+    gap: .4rem;
+    grid-template-columns: 10rem 10rem;
+    grid-template-rows: 10rem 10rem;
     border-radius: 10px;
     opacity: 70%;
 }
@@ -67,9 +71,10 @@ ul li a {
 
 .item-menu {
     color: inherit;
-    font-size: 20pt;
-    font-family: var(--bold);
-    border: 1px solid black;
+    font-size: 1.6rem;
+    font-family: var(--menu-font);
+    letter-spacing: 1px;
+    background-color: var(--primario);
 }
 
 .item-menu a {
@@ -77,26 +82,54 @@ ul li a {
     align-items: center;
     transform: rotate(90deg);
     justify-content: center;
-    background-color: var(--primario);
+    
 }
 
 .item-menu a span {
     transform: rotate(-135deg);
 }
 
-.item-menu :hover {
-    animation: aumentar linear;
-    transform: scale(1.5);
-    transition: transform 1s;
+#lista-menu > .item-menu:hover {
+    background-color: var(--hover);
+    color: var(--secundario);
+    transform: scale(1.2);
+    transition: background-color 0.6s, transform 0.9s, color 0.6s;
 }
 
+/* ==================== PROJETOS ==================== */
+
+#projects{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.project > *{
+    width: 100%;
+}
+
+.project{
+    width: 50%;
+    border: 1px solid red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.project-header{
+    text-align: center;
+    font-size: 12pt;
+}
 
 /* ==================== MAIN / SEÇÕES ==================== */
 
 main {
-    width: 70%;
-    overflow-y: scroll;
-    scroll-behavior: smooth;
+    width: 75%;
+    position: absolute;
+    right: 0px;
 }
 
 section {
