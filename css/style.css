@@ -17,6 +17,7 @@
     --primario: #3c42a9;
     --secundario: #A78BFA;
     --terciario: #14B8A6;
+    --amarelo: #978e0c;
     --hover: #1E293B;
     --base-font: 'Glacial Indifference', sans-serif;
     --bold: 'Glacial Indifference bold', sans-serif;
@@ -39,9 +40,12 @@ html {
 }
 
 body{
-    width: 100dvw;
+    width: 100%;
+    min-height: 100vh;
     display: flex;
+    flex-direction: column;
     background-color: var(--fundo);
+    overflow-x: hidden;
 }
 
 
@@ -67,17 +71,16 @@ nav{
 }
 
 #lista-menu {
-    top: 32dvh;
-    left: 7rem;
+    top: 26vh;
+    left: clamp(2rem, 4vw, 5rem);
     position: fixed;
-    /* background-color: var(--primario); */
     transform: rotate(45deg);
-    height: 20rem;
-    width: 20rem;
+    height: clamp(16rem, 20vw, 20rem);
+    width: clamp(16rem, 20vw, 20rem);
     display: grid;
     gap: .4rem;
-    grid-template-columns: 10rem 10rem;
-    grid-template-rows: 10rem 10rem;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
     border-radius: 10px;
     opacity: 0.7;
     z-index: 200;
@@ -120,9 +123,24 @@ ul li a {
 /* ==================== PROJETOS ==================== */
 
 #pagina-projetos{
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
     display: flex;
     flex-direction: column;
     gap: 20px;
+}
+
+#pagina-projetos::before{
+    content: "";
+    position: absolute;
+    margin-top: -15rem;
+    width: 100vw;
+    inset: 0;
+    background-image: url("../images/bg-2.jpg");
+    background-size: cover;
+    opacity: 0.4;
+    z-index: -10;
 }
 
 #projects{
@@ -177,14 +195,8 @@ ul li a {
 }
 
 .titulo-projeto{
-    color: var(--hover);
-    font-size: 35pt;
-    text-align: left;
-    font-family: var(--menu-font);
-    font-weight: 500;
-    letter-spacing: 2px;
     background: linear-gradient(to right,
-                var(--terciario) 50%,
+                var(--amarelo) 50%,
                 var(--fundo) 50%);
     
     background-size: 200% 100%;
@@ -195,6 +207,15 @@ ul li a {
     -webkit-text-fill-color: transparent;
 
     transition: background-position 1.4s ease;
+}
+
+.titulo-projeto a{
+    color: var(--hover);
+    font-size: 35pt;
+    text-align: left;
+    font-family: var(--menu-font);
+    font-weight: 500;
+    letter-spacing: 2px;
 }
 
 .project:hover .titulo-projeto {
@@ -215,16 +236,18 @@ ul li a {
 /* ==================== MAIN / SEÇÕES ==================== */
 
 main {
-    width: 100%;
-    padding-left: 30%;
+    width: min(1200px, calc(100% - 20rem));
     z-index: 100;
 }
 
 section {
-    height: 100vh;
+    min-height: 100dvh;
     width: 100%;
 }
 
+.pagina{
+    padding-left: 35rem;
+}
 
 /* ==================== TÍTULOS ==================== */
 
@@ -247,6 +270,7 @@ section {
 #projetos{
     margin-bottom: 1.5rem;
     text-align: left;
+    color: #cfc210;
 }
 
 .sub-titulo {
@@ -261,23 +285,39 @@ section {
     display: flex;
     flex-direction: column;
     align-items: center;
+    /* justify-content: center; */
     padding-top: 15rem;
     gap: 2rem;
 }
 
 #foto-perfil {
     border-radius: 100%;
-    width: 20rem;
-    height: 20rem;
+    width: clamp(16rem, 22vw, 20rem);
+    height: clamp(16rem, 22vw, 20rem);
+    margin-left: 2rem;
 }
 
 
 /* ==================== TECNOLOGIAS ==================== */
 
 #pagina-tecnologias {
+    position: relative;
+    padding-top: 10rem;
     display: flex;
     flex-direction: column;
     gap: 2rem;
+}
+
+#pagina-tecnologias::before {
+    content: "";
+    position: absolute;
+    /* margin-top: -15rem; */
+    width: 100vw;
+    inset: 0;
+    background-image: url("../images/bg-3.jpg");
+    background-size: cover;
+    opacity: 0.4;
+    z-index: -1;
 }
 
 .stack-img{
@@ -288,6 +328,7 @@ section {
 }
 
 #stacks {
+    margin-top: 5rem;
     display: grid;
     grid-template-columns: 20rem 20rem 20rem;
     grid-template-rows: 10rem 10rem 10rem;
@@ -311,4 +352,46 @@ section {
     to {
         transform: translateY(360deg) translateZ(150px);
     }
+}
+
+/* ==================== EXPERIÊNCIAS ==================== */
+
+#pagina-experiencias {
+    position: relative;
+    padding-top: 10rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+#pagina-experiencias::before {
+    content: "";
+    position: absolute;
+    /* margin-top: -15rem; */
+    width: 100vw;
+    inset: 0;
+    background-image: url("../images/bg-4.jpg");
+    background-size: cover;
+    opacity: 0.4;
+    z-index: -1;
+}
+
+/* ==================== RODAPÉ ==================== */
+
+footer{
+    width: 100dvw;
+    height: 6rem;
+    background-color: var(--hover);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#contatos{
+    display: flex;
+    gap: 5rem;
+}
+
+footer .linkContato{
+    color: grey;
 }
